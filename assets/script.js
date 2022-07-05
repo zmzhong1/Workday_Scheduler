@@ -14,6 +14,7 @@ function timeBlockColor(){
             textBlock.eq(i).addClass('present');
         }
     }
+    // textBlock[i].addClass
 } 
 
 // store the textarea value into localStorage
@@ -27,13 +28,11 @@ $('.saveBtn').on("click", function() {
 
 
 timeBlockColor();
-// Place in the stored value back into the textarea
-$("#9AM .textBlock").val(localStorage.getItem("9AM"));
-$("#10AM .textBlock").val(localStorage.getItem("10AM"));
-$("#11AM .textBlock").val(localStorage.getItem("11AM"));
-$("#12PM .textBlock").val(localStorage.getItem("12PM"));
-$("#1PM .textBlock").val(localStorage.getItem("1PM"));
-$("#2PM .textBlock").val(localStorage.getItem("2PM"));
-$("#3PM .textBlock").val(localStorage.getItem("3PM"));
-$("#4PM .textBlock").val(localStorage.getItem("4PM"));
-$("#5PM .textBlock").val(localStorage.getItem("5PM"));
+
+// display the stored value in local storage on the textarea
+for (let i = 0; i < 9; i++) {
+    console.log(textBlock.eq(i).parent().attr("id"));
+    textBlock.eq(i).val(localStorage.getItem(textBlock.eq(i).parent().attr("id")));
+}
+
+
