@@ -20,9 +20,7 @@ function timeBlockColor(){
 // store the textarea value into localStorage
 $('.saveBtn').on("click", function() {
     let time = $(this).parent().attr("id");
-    console.log(time);
     let text = $(this).siblings('.textBlock').val();
-    console.log(text);
     localStorage.setItem(time, text);
 });
 
@@ -31,7 +29,6 @@ timeBlockColor();
 
 // display the stored value in local storage on the textarea
 for (let i = 0; i < 9; i++) {
-    console.log(textBlock.eq(i).parent().attr("id"));
     textBlock.eq(i).val(localStorage.getItem(textBlock.eq(i).parent().attr("id")));
 }
 
